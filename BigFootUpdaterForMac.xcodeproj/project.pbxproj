@@ -14,6 +14,7 @@
 		90CD761D1DCC67C000B02916 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90CD761B1DCC67C000B02916 /* Main.storyboard */; };
 		90CD76281DCC67C000B02916 /* BigFootUpdaterForMacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CD76271DCC67C000B02916 /* BigFootUpdaterForMacTests.m */; };
 		90CD76331DCC67C000B02916 /* BigFootUpdaterForMacUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CD76321DCC67C000B02916 /* BigFootUpdaterForMacUITests.m */; };
+		90CD76421DCC699100B02916 /* BFLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CD76411DCC699100B02916 /* BFLoader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		90CD762E1DCC67C000B02916 /* BigFootUpdaterForMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BigFootUpdaterForMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90CD76321DCC67C000B02916 /* BigFootUpdaterForMacUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BigFootUpdaterForMacUITests.m; sourceTree = "<group>"; };
 		90CD76341DCC67C000B02916 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90CD76401DCC699100B02916 /* BFLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFLoader.h; sourceTree = "<group>"; };
+		90CD76411DCC699100B02916 /* BFLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFLoader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,8 @@
 				90CD76111DCC67C000B02916 /* AppDelegate.m */,
 				90CD76161DCC67C000B02916 /* ViewController.h */,
 				90CD76171DCC67C000B02916 /* ViewController.m */,
+				90CD76401DCC699100B02916 /* BFLoader.h */,
+				90CD76411DCC699100B02916 /* BFLoader.m */,
 				90CD76191DCC67C000B02916 /* Assets.xcassets */,
 				90CD761B1DCC67C000B02916 /* Main.storyboard */,
 				90CD761E1DCC67C000B02916 /* Info.plist */,
@@ -269,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90CD76421DCC699100B02916 /* BFLoader.m in Sources */,
 				90CD76181DCC67C000B02916 /* ViewController.m in Sources */,
 				90CD76151DCC67C000B02916 /* main.m in Sources */,
 				90CD76121DCC67C000B02916 /* AppDelegate.m in Sources */,
