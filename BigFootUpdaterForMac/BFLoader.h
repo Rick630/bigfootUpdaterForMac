@@ -8,6 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol BFLoaderDelegate <NSObject>
+
+-(void)downloadProgressUpdated:(CGFloat)percent;
+
+@end
+
 @interface BFLoader : NSObject
-+(void)loadVersion:(void(^)(NSString *))complete;
+
+@property (nonatomic, weak) id<BFLoaderDelegate>delegate;
+
++(instancetype)loader;
+-(void)loadVersion:(void(^)(NSString *))complete;
+-(void)downloadWithVersion:(NSString *)version complete:(void(^)(BOOL succees))complete;
 @end

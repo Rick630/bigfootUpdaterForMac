@@ -8,8 +8,20 @@
 
 #import "BFLoader.h"
 
+@interface BFLoader ()<NSURLSessionDelegate>
+@end
+
 @implementation BFLoader
-+(void)loadVersion:(void(^)(NSString *))complete
++(instancetype)loader
+{
+    static dispatch_once_t onceToken;
+    static BFLoader *instance;
+    dispatch_once(&onceToken, ^{
+        instance = [[BFLoader alloc] init];
+    });
+    return instance;
+}
+-(void)loadVersion:(void(^)(NSString *))complete
 {
     NSURLSession *session = [NSURLSession sharedSession];
     NSURL *url = [NSURL URLWithString:@"http://bigfoot.178.com/wow/update.html"];
@@ -30,7 +42,7 @@
     [task resume];
  
 }
-+(NSString *)parseHtml:(NSString *)htmlStr
+-(NSString *)parseHtml:(NSString *)htmlStr
 {
     ///<span class="tit">V7.1.0.599版本说明</span>
     
@@ -60,5 +72,40 @@
     NSString *version = [matchStr substringWithRange:versionRange];
     
     return version;
+}
+#pragma -mark 下载
+-(void)downloadWithVersion:(NSString *)version complete:(void (^)(BOOL))complete
+{
+    if(version.length == 0)
+    {
+        complete(NO);
+    }
+    
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:[[NSOperationQueue alloc] init]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://wow.bfupdate.178.com/BigFoot/Interface/3.1/Interface.%@.zip", version]];
+
+    [[session downloadTaskWithURL:url] resume];
+}
+
+- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
+{
+    float progress = (float)totalBytesWritten / totalBytesExpectedToWrite;
+    NSLog(@"%f",progress);
+    
+    if(self.delegate && [self.delegate respondsToSelector:@selector(downloadProgressUpdated:)])
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate downloadProgressUpdated:progress];
+        });
+    }
+}
+- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location
+{
+    NSLog(@"%@", location);
+    
+    NSString *desPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"Contents"];
+    [[NSFileManager defaultManager] moveItemAtPath:location.path toPath:[desPath stringByAppendingPathComponent:downloadTask.response.suggestedFilename] error:nil];
 }
 @end

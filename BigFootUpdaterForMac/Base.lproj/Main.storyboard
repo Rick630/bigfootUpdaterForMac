@@ -704,19 +704,57 @@
                             <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="P1s-YV-qSS">
                                 <rect key="frame" x="20" y="234" width="16" height="16"/>
                             </progressIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zjy-zA-LJJ">
+                                <rect key="frame" x="39" y="206" width="94" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="WOW游戏目录:" id="THf-AS-fdz">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aBy-Lu-RBl">
+                                <rect key="frame" x="139" y="206" width="37" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="Fq7-5b-qCo">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bH7-4V-z6G">
+                                <rect key="frame" x="198" y="197" width="66" height="32"/>
+                                <buttonCell key="cell" type="push" title="设置" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Tnp-bg-MDj">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="choosePath:" target="XfG-lQ-9wD" id="PQv-tg-Y6O"/>
+                                </connections>
+                            </button>
+                            <progressIndicator wantsLayer="YES" fixedFrame="YES" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="ITv-Z2-pCo">
+                                <rect key="frame" x="41" y="158" width="395" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </progressIndicator>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="aBy-Lu-RBl" firstAttribute="leading" secondItem="Zjy-zA-LJJ" secondAttribute="trailing" constant="10" id="5hf-Im-C4E"/>
                             <constraint firstItem="Z0k-nQ-H53" firstAttribute="centerY" secondItem="env-XO-SrW" secondAttribute="centerY" id="AzN-sV-N08"/>
                             <constraint firstItem="env-XO-SrW" firstAttribute="leading" secondItem="P1s-YV-qSS" secondAttribute="trailing" constant="5" id="M6x-92-JKy"/>
                             <constraint firstItem="P1s-YV-qSS" firstAttribute="centerY" secondItem="env-XO-SrW" secondAttribute="centerY" id="NYg-BK-Uf0"/>
                             <constraint firstItem="Z0k-nQ-H53" firstAttribute="leading" secondItem="env-XO-SrW" secondAttribute="trailing" constant="5" id="NoZ-GX-fZr"/>
+                            <constraint firstItem="Zjy-zA-LJJ" firstAttribute="top" secondItem="env-XO-SrW" secondAttribute="bottom" constant="10" id="aSd-VF-c16"/>
                             <constraint firstItem="env-XO-SrW" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="bKl-Vm-Nh4"/>
                             <constraint firstItem="P1s-YV-qSS" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="e2r-54-YyG"/>
+                            <constraint firstItem="Zjy-zA-LJJ" firstAttribute="leading" secondItem="env-XO-SrW" secondAttribute="leading" id="naB-gE-NeF"/>
+                            <constraint firstItem="aBy-Lu-RBl" firstAttribute="centerY" secondItem="Zjy-zA-LJJ" secondAttribute="centerY" id="sXT-PD-DDE"/>
+                            <constraint firstItem="bH7-4V-z6G" firstAttribute="centerY" secondItem="aBy-Lu-RBl" secondAttribute="centerY" id="vDx-n7-vJ8"/>
+                            <constraint firstItem="bH7-4V-z6G" firstAttribute="leading" secondItem="aBy-Lu-RBl" secondAttribute="trailing" constant="30" id="wCX-GO-DhF"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="indicator" destination="P1s-YV-qSS" id="2Lm-PR-iZh"/>
+                        <outlet property="labPath" destination="aBy-Lu-RBl" id="5Jv-lB-QFv"/>
                         <outlet property="labVersion" destination="Z0k-nQ-H53" id="uIX-0B-Wmc"/>
+                        <outlet property="progress" destination="ITv-Z2-pCo" id="lJ8-e5-Y8p"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
