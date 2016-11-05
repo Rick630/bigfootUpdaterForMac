@@ -11,6 +11,7 @@
 @protocol BFLoaderDelegate <NSObject>
 
 -(void)downloadProgressUpdated:(CGFloat)percent;
+-(void)downloadDidfinshed:(NSString *)filePath;
 
 @end
 

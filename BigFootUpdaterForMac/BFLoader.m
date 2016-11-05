@@ -103,9 +103,21 @@
 }
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location
 {
-    NSLog(@"%@", location);
     
     NSString *desPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"Contents"];
-    [[NSFileManager defaultManager] moveItemAtPath:location.path toPath:[desPath stringByAppendingPathComponent:downloadTask.response.suggestedFilename] error:nil];
+    NSString *filePath = [desPath stringByAppendingPathComponent:downloadTask.response.suggestedFilename];
+    NSError *error;
+    if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
+    {
+        [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
+    }
+    if([[NSFileManager defaultManager] moveItemAtPath:location.path toPath:filePath error:&error])
+    {
+        if(self.delegate && [self.delegate respondsToSelector:@selector(downloadDidfinshed:)])
+        {
+            [self.delegate downloadDidfinshed:filePath];
+        }
+    }
+    NSLog(@"%@", error);
 }
 @end
