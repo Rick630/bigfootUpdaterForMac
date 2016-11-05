@@ -21,5 +21,5 @@
 
 +(instancetype)loader;
 -(void)loadVersion:(void(^)(NSString *))complete;
--(void)downloadWithVersion:(NSString *)version complete:(void(^)(BOOL succees))complete;
+-(void)downloadWithVersion:(NSString *)version;
 @end

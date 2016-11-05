@@ -74,11 +74,11 @@
     return version;
 }
 #pragma -mark 下载
--(void)downloadWithVersion:(NSString *)version complete:(void (^)(BOOL))complete
+-(void)downloadWithVersion:(NSString *)version
 {
     if(version.length == 0)
     {
-        complete(NO);
+        return;
     }
     
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];

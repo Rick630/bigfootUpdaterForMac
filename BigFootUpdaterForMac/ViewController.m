@@ -123,7 +123,7 @@
     
     [self showLog:@"正在下载"];
     [BFLoader loader].delegate = self;
-    [[BFLoader loader] downloadWithVersion:newVersion complete:nil];
+    [[BFLoader loader] downloadWithVersion:newVersion];
 }
 #pragma mark - BFLoader delegate
 -(void)downloadProgressUpdated:(CGFloat)percent
