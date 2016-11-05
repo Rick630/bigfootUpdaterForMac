@@ -1,3 +1,5 @@
+[下载](https://github.com/Rick630/bigfootUpdaterForMac/raw/master/release/BigFootUpdaterForMac.zip)
+
 #使用
 
 点`设置`按钮选择魔兽目录，点击`更新插件`
