@@ -733,9 +733,8 @@
                             <progressIndicator wantsLayer="YES" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="ITv-Z2-pCo">
                                 <rect key="frame" x="41" y="75" width="395" height="20"/>
                             </progressIndicator>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pda-aB-fC2">
+                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pda-aB-fC2">
                                 <rect key="frame" x="185" y="18" width="92" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="更新插件" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Xiq-Yu-l6l">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -762,9 +761,11 @@
                             </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="pda-aB-fC2" firstAttribute="top" secondItem="ITv-Z2-pCo" secondAttribute="bottom" constant="30" id="5Gl-Ob-Wre"/>
                             <constraint firstItem="aBy-Lu-RBl" firstAttribute="leading" secondItem="Zjy-zA-LJJ" secondAttribute="trailing" constant="10" id="5hf-Im-C4E"/>
                             <constraint firstItem="Z0k-nQ-H53" firstAttribute="centerY" secondItem="env-XO-SrW" secondAttribute="centerY" id="AzN-sV-N08"/>
                             <constraint firstItem="MZh-Pb-EOf" firstAttribute="leading" secondItem="Zjy-zA-LJJ" secondAttribute="leading" id="B2v-6W-S4Y"/>
+                            <constraint firstItem="pda-aB-fC2" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="C6p-sm-PrI"/>
                             <constraint firstItem="env-XO-SrW" firstAttribute="leading" secondItem="P1s-YV-qSS" secondAttribute="trailing" constant="5" id="M6x-92-JKy"/>
                             <constraint firstItem="ITv-Z2-pCo" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="41" id="MSe-aE-aEk"/>
                             <constraint firstItem="P1s-YV-qSS" firstAttribute="centerY" secondItem="env-XO-SrW" secondAttribute="centerY" id="NYg-BK-Uf0"/>

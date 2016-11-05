@@ -34,7 +34,6 @@
 
     //init path
     NSString *path = [[NSUserDefaults standardUserDefaults] objectForKey:PATH_KEY];
-    
     if(path.length > 0)
     {
         self.labPath.stringValue = path;
@@ -107,19 +106,24 @@
     [[NSUserDefaults standardUserDefaults] setObject:path forKey:PATH_KEY];
     [[NSUserDefaults standardUserDefaults] synchronize];
     self.labPath.stringValue = path;
+    wowPath = path;
 }
 - (IBAction)update:(id)sender {
-    if(newVersion)
-    {
-        [self showLog:@"正在下载"];
-        [BFLoader loader].delegate = self;
-        [[BFLoader loader] downloadWithVersion:newVersion complete:nil];
-    }
-    else
+    
+    if(newVersion == nil)
     {
         [self showLog:@"无法更新（没有获取到最新版本号）"];
+        return;
     }
-
+    if(wowPath == nil)
+    {
+        [self showLog:@"请先设置魔兽目录"];
+        return;
+    }
+    
+    [self showLog:@"正在下载"];
+    [BFLoader loader].delegate = self;
+    [[BFLoader loader] downloadWithVersion:newVersion complete:nil];
 }
 #pragma mark - BFLoader delegate
 -(void)downloadProgressUpdated:(CGFloat)percent
